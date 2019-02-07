@@ -10,7 +10,7 @@
 
 Coming soon.
 
-Check out the demo at [https://appnest-demo.firebaseapp.com/fireparse/](https://appnest-demo.firebaseapp.com/fireparse/).
+Check out the demo at [https://appnest-demo.firebaseapp.com/fireparse/](https://appnest-demo.firebaseapp.com/fireparse).
 
 **Features**
 
