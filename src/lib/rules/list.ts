@@ -1,20 +1,21 @@
 import { createHtmlTag } from "../create-html-tag";
 import { HTML, IParserConfig, IRule, ISyntaxNode, NestedOutputFunction, NestedParseFunction, ParsingState } from "../model";
 
-export const listItemRule: IRule = {
-	name: "list-item",
-	state: ParsingState.INLINE,
-	regex: /^\*\s([^\n]+)\n?/,
+export const listRule: IRule = {
+	name: "list",
+	state: ParsingState.BLOCK,
+	regex: /^(\*\s*[^\n]+\n?)+/,
 	parse: (match: RegExpExecArray,
 	        parse: NestedParseFunction,
 	        state: ParsingState,
 	        config: IParserConfig): ISyntaxNode => {
+		console.log("!!!!!!!!!!!!!", match);
 		return {
-			content: parse(match[1], ParsingState.INLINE, config),
-			rule: listItemRule
+			content: parse(match[0], ParsingState.INLINE, config),
+			rule: listRule
 		};
 	},
 	html: (node: ISyntaxNode, output: NestedOutputFunction): HTML => {
-		return createHtmlTag("li", `${output(node, ParsingState.INLINE)}`);
+		return createHtmlTag("ul", `${output(node, ParsingState.INLINE)}`);
 	}
 };

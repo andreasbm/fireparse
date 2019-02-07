@@ -4,7 +4,7 @@ import { HTML, IParserConfig, IRule, NestedOutputFunction, NestedParseFunction, 
 export const paragraphRule: IRule = {
 	name: "paragraph",
 	state: ParsingState.BLOCK,
-	regex: /^((?:[^\n]|\n(?! *\n))+?)(?:\n|$)/, ///^((?:[^\n]|\n(?! *\n))+)(?:\n *)+\n/),
+	regex: /^((?:[^\n]|\n(?!\s*\n))+?)(?:\n|$)/, ///^((?:[^\n]|\n(?! *\n))+)(?:\n *)+\n/),
 	parse: (match: RegExpExecArray,
 	        parse: NestedParseFunction,
 	        state: ParsingState,

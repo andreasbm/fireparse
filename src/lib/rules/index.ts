@@ -12,6 +12,7 @@ import { imageRule } from "./image";
 import { inlineCodeRule } from "./inline-code";
 import { italicRule } from "./italic";
 import { linkRule } from "./link";
+import { listRule } from "./list";
 import { listItemRule } from "./list-item";
 import { mailtoRule } from "./mailto";
 import { newLineRule } from "./new-line";
@@ -58,6 +59,7 @@ export const simpleMarkdownRules: Rules = [
 	hashtagRule,
 	emptyLineRule,
 	inlineCodeRule,
+	listRule,
 	paragraphRule,
 	pureTextRule
 ];
