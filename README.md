@@ -8,9 +8,7 @@
 
 ## What is this?
 
-Coming soon.
-
-Check out the demo at [https://appnest-demo.firebaseapp.com/fireparse](https://appnest-demo.firebaseapp.com/fireparse).
+An extensible markdown to html converter. Check out the demo at [https://appnest-demo.firebaseapp.com/fireparse](https://appnest-demo.firebaseapp.com/fireparse).
 
 **Features**
 
