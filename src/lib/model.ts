@@ -55,10 +55,10 @@ export interface IRule {
 // ==============================
 // A node in the syntax tree being build from the rules in the initial parsing.
 // ==============================
-export interface ISyntaxNode {
+export interface ISyntaxNode<T = any> {
 	content: SyntaxContent;
 	rule: IRule;
-	meta?: any;
+	meta?: T;
 }
 
 // ==============================

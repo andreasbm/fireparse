@@ -1,10 +1,10 @@
-import { simpleMarkdownRules } from "../lib/index";
+import { rules } from "../lib/index";
 import { createParser } from "../lib/parser";
 
 const expect = chai.expect;
 
 const parse = createParser({
-	rules: simpleMarkdownRules
+	rules: rules
 });
 
 describe("rules", () => {
@@ -59,13 +59,13 @@ describe("rules", () => {
 		expect(parse(`*~Hello~*`)).to.equal("<p><b><del>Hello</del></b></p>");
 		expect(parse(`~*Hello*~`)).to.equal("<p><del><b>Hello</b></del></p>");
 
-		// expect(parse(`_*Hello*_`)).to.equal('<p><i><b>Hello</b></i></p>');
+		expect(parse(`_*Hello*_`)).to.equal('<p><i><b>Hello</b></i></p>');
 		expect(parse(`*_Hello_*`)).to.equal("<p><b><i>Hello</i></b></p>");
 
 		expect(parse(`_~Hello~_`)).to.equal("<p><i><del>Hello</del></i></p>");
 		expect(parse(`~_Hello_~`)).to.equal("<p><del><i>Hello</i></del></p>");
 
-		// expect(parse(`~_*Hello*_~`)).to.equal('<p><del><i><b>Hello</b></i></del></p>')
+		expect(parse(`~_*Hello*_~`)).to.equal('<p><del><i><b>Hello</b></i></del></p>')
 
 	});
 

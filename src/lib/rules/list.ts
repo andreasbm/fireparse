@@ -4,7 +4,7 @@ import { HTML, IParserConfig, IRule, ISyntaxNode, NestedOutputFunction, NestedPa
 export const listRule: IRule = {
 	name: "list",
 	state: ParsingState.BLOCK,
-	regex: /^(\*\s*[^\n]+\n?)+/,
+	regex: /^(\*\s+[^\n]+\n?)+/,
 	parse: (match: RegExpExecArray,
 	        parse: NestedParseFunction,
 	        state: ParsingState,

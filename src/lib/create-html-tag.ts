@@ -1,5 +1,3 @@
-import { HTML } from "./model";
-
 /**
  * Creates a HTML tag.
  * @param tagName Name of the tag, eg. "a", "p", "blockquote".
@@ -8,7 +6,12 @@ import { HTML } from "./model";
  * @param selfClosing
  * @returns {string}
  */
-export function createHtmlTag (tagName: string, content: string | null, attributes: { [key: string]: string; } = {}, selfClosing: boolean = false): HTML {
+import { HTML } from "./model";
+
+export function createHtmlTag (tagName: string,
+                               content: string | null,
+                               attributes: {[key: string]: string;} = {},
+                               selfClosing: boolean = false): HTML {
 
 	// Create a string with attributes "key"="value"
 	let attributeString = Object.entries(attributes).map(([key, value]) => `${key}="${value}"`).join(" ");

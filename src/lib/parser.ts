@@ -168,7 +168,7 @@ function nestedParse (source: string, state: ParsingState, config: IParserConfig
 
 		// It is required that at least one of the rule matches the source. If none of the rules matches, break it to avoid infinite loop.
 		if (!foundMatch) {
-			throw new Error(`Could not find rule to match content: ${source}. At least one rule is required to match.`);
+			throw new Error(`Could not find rule to match content: ${source}. At least one one of the ${config.rules.length} rules is required to match.`);
 		}
 	}
 

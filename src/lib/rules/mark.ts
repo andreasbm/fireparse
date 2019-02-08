@@ -1,17 +1,20 @@
 import { createHtmlTag } from "../create-html-tag";
 import { HTML, IParserConfig, IRule, ISyntaxNode, NestedOutputFunction, NestedParseFunction, ParsingState } from "../model";
 
-export const italicRule: IRule = {
-	name: "italic",
+export const markRule: IRule = {
+	name: "mark",
 	state: ParsingState.INLINE,
-	regex: /^_([^_\n]+)_/,
-	parse: (match: RegExpExecArray, parse: NestedParseFunction, state: ParsingState, config: IParserConfig): ISyntaxNode => {
+	regex: /^={2}([^\n]+)==/,
+	parse: (match: RegExpExecArray,
+	        parse: NestedParseFunction,
+	        state: ParsingState,
+	        config: IParserConfig): ISyntaxNode => {
 		return {
 			content: parse(match[1], state, config),
-			rule: italicRule
+			rule: markRule
 		};
 	},
 	html: (node: ISyntaxNode, output: NestedOutputFunction, state: ParsingState): HTML => {
-		return createHtmlTag("i", output(node, state));
+		return createHtmlTag("mark", output(node, state));
 	}
-}
+};

@@ -15,6 +15,7 @@ import { linkRule } from "./link";
 import { listRule } from "./list";
 import { listItemRule } from "./list-item";
 import { mailtoRule } from "./mailto";
+import { markRule } from "./mark";
 import { newLineRule } from "./new-line";
 import { paragraphRule } from "./paragraph";
 import { pureTextRule } from "./pure-text";
@@ -41,25 +42,58 @@ export * from "./paragraph";
 export * from "./pure-text";
 export * from "./spanning-block-quote";
 
-export const simpleMarkdownRules: Rules = [
-	headingRule,
-	spanningBlockQuoteRule,
-	blockQuoteRule,
-	newLineRule,
-	blockCodeRule,
-	listItemRule,
-	imageRule,
-	horizontalRulerRule,
-	boldRule,
-	italicRule,
-	mailtoRule,
-	delRule,
-	linkRule,
-	atRule,
-	hashtagRule,
-	emptyLineRule,
-	inlineCodeRule,
-	listRule,
-	paragraphRule,
+const inlineRules: Rules = [
+	italicRule,             // _italic_
+	boldRule,               // *bold*
+	listItemRule,           // * list item
+	mailtoRule,             // example@gmail.com
+	markRule,               // ==mark==
+	delRule,                // ~delete~
+	linkRule,               // www.google.com
+	atRule,                 // @tag
+	hashtagRule,            // #hashtag
+	emptyLineRule,          // ^[\n|$]
+	inlineCodeRule,         // `code`
 	pureTextRule
 ];
+
+const blockRules: Rules = [
+	headingRule,            // # heading
+	spanningBlockQuoteRule, // >>> block quote\nblock quote
+	blockQuoteRule,         // > block quote
+	newLineRule,
+	blockCodeRule,          // ```code```
+	imageRule,
+	horizontalRulerRule,    // -----
+	listRule,
+	paragraphRule,
+];
+
+
+export const rules: Rules = [
+	...inlineRules,
+	...blockRules
+];
+
+// export const rules: Rules = [
+// 	headingRule,            // # heading
+// 	spanningBlockQuoteRule, // >>> block quote\nblock quote
+// 	blockQuoteRule,         // > block quote
+// 	newLineRule,
+// 	blockCodeRule,          // ```code```
+// 	imageRule,
+// 	horizontalRulerRule,    // -----
+// 	italicRule,             // _italic_
+// 	boldRule,               // *bold*
+// 	listItemRule,           // * list item
+// 	mailtoRule,             // example@gmail.com
+// 	delRule,                // ~delete~
+// 	linkRule,               // www.google.com
+// 	atRule,                 // @tag
+// 	hashtagRule,            // #hashtag
+// 	emptyLineRule,          // ^[\n|$]
+// 	inlineCodeRule,         // `code`
+// 	listRule,
+// 	paragraphRule,
+// 	pureTextRule
+// ];
