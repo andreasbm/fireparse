@@ -21,7 +21,6 @@ import { paragraphRule } from "./paragraph";
 import { pureTextRule } from "./pure-text";
 import { spanningBlockQuoteRule } from "./spanning-block-quote";
 
-export * from "../model";
 export * from "./at";
 export * from "./block-code";
 export * from "./block-quote";
